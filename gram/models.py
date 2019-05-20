@@ -50,3 +50,11 @@ class Image(models.Model):
 class NewsLetterRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
+
+
+class Index(models.Model):
+    title = models.CharField(max_length=60)
+    post = models.TextField()
+    editor = models.ForeignKey(User,on_delete=models.CASCADE)
+    tags = models.ManyToManyField(tags)
+    article_image = models.ImageField(upload_to='index/', blank=True)
