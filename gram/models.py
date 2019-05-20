@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
+from django.contrib.auth.models import User
 
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to =30)

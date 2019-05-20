@@ -6,9 +6,12 @@ from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .models import Image
 from .forms import NewsLetterForm
 from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required.
 
 
-def index(request):
+@login_required(login_url='/accounts/login/')
+
+def index(request, index):
      if request.method == 'POST':
         form = GramLetterForm(request.POST)
         if form.is_valid():
