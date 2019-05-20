@@ -47,3 +47,7 @@ class Image(models.Model):
     def search_by_image_profile(cls,search_item):
         images = cls.objects.filter(image_icontains=search_term)
         return images
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
