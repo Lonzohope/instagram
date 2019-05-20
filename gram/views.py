@@ -5,23 +5,24 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .models import Image
 from .forms import NewsLetterForm
-
-
+from .email import send_welcome_email
 
 
 def index(request):
      if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
+        form = GramLetterForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['your_name']
             email = form.cleaned_data['email']
+
             recipient = NewsLetterRecipients(name = name,email =email)
             recipient.save()
-            HttpResponseRedirect('index.html')
-    else:
-        form = NewsLetterForm()
+            send_welcome_email(name,email)
+
+            HttpResponseRedirect('gram_today')
+            #.................
     return render(request, 'index.html', {"gram":gram,"letterForm":form})
-  
+
 def search_results(request):
   if 'profile' in request.GET["profile"]:
     search_term = request.GET.get("profile")
@@ -45,3 +46,4 @@ def hope.html(request):
   else:
     form = NewsLetterForm()
     return render(request, 'index.html', {"gram":gram,"letterForm":form})
+
