@@ -24,7 +24,7 @@ class Image(models.Model):
    
 
     def __str__(self):
-        return self.image_name
+      return self.image_name
 
     class Meta:
         ordering = ['image']
@@ -32,7 +32,7 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
-    def delete_iamge(self):
+    def delete_image(self):
         self.save()
 
     def update_caption(self):
