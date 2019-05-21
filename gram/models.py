@@ -7,7 +7,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length =30)
     
     def __str__(self):
-        return self.name
+      return self.name
 
     def save_profile(self):
         self.save()
@@ -56,5 +56,12 @@ class Index(models.Model):
     title = models.CharField(max_length=60)
     post = models.TextField()
     editor = models.ForeignKey(User,on_delete=models.CASCADE)
-    tags = models.ManyToManyField(tags)
     article_image = models.ImageField(upload_to='index/', blank=True)
+
+
+class User(models.Model):
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length=100)
+    email = models.CharField(max_length=140)
+    last_login = models.DateTimeField(auto_now=True)
+    
