@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .models import User,Profile,Image
-
+from .email import send_welcome_email
 
 def index(request):
     return render(request, 'index.html')
@@ -18,7 +18,10 @@ def signup(request):
             email = form.cleaned_data['email']
             recipient = SignUpRecipients(name = name,email =email)
             recipient.save()
+            send_welcome_email(name,email)
             HttpResponseRedirect('signup')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {"gram":gram,"letterForm":form})
+
+
