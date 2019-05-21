@@ -1,4 +1,4 @@
-{%extends base.html'%}
+
 {% load bootstrap4 %}
 {% load static%}
 <!DOCTYPE html>
@@ -20,8 +20,7 @@
           <!-- Bootstrap core CSS -->
           <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
           <!-- Material Design Bootstrap -->
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/css/mdb.min.css" rel="stylesheet">
-
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
           {% endblock %}
 
@@ -41,16 +40,11 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/js/mdb.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
      {% bootstrap_javascript %}
     {% endblock %}
 
-    <div class="container-fluid">
-        <form  action="{%url 'index.html'%}" method="post">
-            {%csrf_token%}
         
-            {% bootstrap_form letterForm layout='inline' %}
-            <input type="submit" value="Subscribe">
-          </form>
         
     </div>
     </body>

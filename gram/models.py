@@ -1,7 +1,15 @@
-from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+
+class User(models.Model):
+    username = models.CharField(max_length=20)
+    password = models.CharField(max_length=100)
+    email = models.CharField(max_length=140)
+    last_login = models.DateTimeField(auto_now=True)
+    
+
+    
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to =30)
     bio = models.CharField(max_length =30)
@@ -17,7 +25,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to="images/")
     image_name = models.CharField(max_length =30)
     image_caption = models.CharField(max_length =30)
-    image_profile = models.ForeignKey(Profile)
+    image_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
     image_comments =  models.CharField(max_length =30)
     image_likes = models.IntegerField
    
@@ -47,21 +55,8 @@ class Image(models.Model):
         images = cls.objects.filter(image_icontains=search_term)
         return images
 
-class NewsLetterRecipients(models.Model):
+class SignUpRecipients(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
 
 
-class Index(models.Model):
-    title = models.CharField(max_length=60)
-    post = models.TextField()
-    editor = models.ForeignKey(User,on_delete=models.CASCADE)
-    article_image = models.ImageField(upload_to='index/', blank=True)
-
-
-class User(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=100)
-    email = models.CharField(max_length=140)
-    last_login = models.DateTimeField(auto_now=True)
-    
