@@ -6,8 +6,6 @@ from .models import User,Profile,Image
 def index(request):
     return render(request, 'index.html')
 
-
-
 def search_results(request):
     return render(request, 'search_results.html')
 
