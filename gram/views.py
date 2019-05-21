@@ -7,10 +7,11 @@ def index(request):
     return render(request, 'index.html')
 
 
+
 def search_results(request):
     return render(request, 'search_results.html')
 
-    
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
