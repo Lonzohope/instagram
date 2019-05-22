@@ -24,8 +24,8 @@ class Profile(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to="images/")
-    image_name = models.CharField(max_length =2000)
-    image_caption = models.CharField(max_length =30)    
+    image_name = models.CharField(max_length =30)
+    image_caption = models.CharField(max_length =3000)    
     image_comments =  models.CharField(max_length =30)
     image_likes = models.IntegerField
     user=models.ForeignKey(User,on_delete = models.CASCADE)
