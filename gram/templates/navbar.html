@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navMain">
+<nav class="navbar navbar-expand-lg navbar-light" id="navMain">
     <div class="container">
         <a class="smooth-scroll" href="/"><i style="font-size: 100px; color:teal;" class="fab fa-instagram">  <br>  </i></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -32,6 +32,12 @@
                                       <li>
                                         <a href="/logout">Logout</a>
                                       </li>
+                                      <li>
+                                          <a href="{%url 'profile'%}">{{user}}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{%url 'upload'%}">Share Photos</a>
+                                          </li>
                                     </ul>
                                   </li>
                                 </ul>

@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load static %}{%load bootstrap4%}
+{%block content%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="background-color: #E97451">
+    <div class="container">
+        <img src="https://assets.materialup.com/uploads/f5f2ffb2-bcc7-4f11-acbf-24f0109cd5fd/preview.gif" alt="gif of instagram" class="rounded-circle img-fluid" width="450"  style="position:fixed;top:15%;left: 15%; bottom: 15%; right: 15%;">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>{{user}} </h1>
+            </div>
+            <div class="col-md-6">
+                <form action="{%url 'edit'%}" method="POST" enctype="multipart/form-data">
+                    {%csrf_token%}
+                    {%bootstrap_form form%}
+                    <button class="btn btn-info" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+      
+    </div>
+      
+   
+</body>
+<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</html>
+{%endblock%}

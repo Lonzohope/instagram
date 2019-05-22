@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="background-color: #E97451">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {%for i in profile%}
+            <img height="250px" width="200" src="{{i.profile_photo.url}}" alt="gif of instagram" class="rounded-circle img-fluid">
+                {%endfor%}
+                <span style="font-size:30px">{{user}} profile page</span>
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-info" href="{%url 'edit'%}">Edit profile</a>
+            </div>
+        </div>
+        <hr class="bg-info">
+        <h1>Stories Here</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    {%for i in stories%}
+                    <div class="col-md-3">
+                            <div class="card">
+                                    <img height="" width="200" src="{{i.image.url}}" alt="gif of instagram" class="img-fluid">
+                                      </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                
+                
+               
+                
+            </div>
+        </div>
+    
+      
+    </div>
+      
+   
+</body>
+<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</html>
+{%endblock%}

@@ -5,8 +5,12 @@ from django.conf import settings
 
 urlpatterns=[
     url(r'^$',views.index,name='index'),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^signup/$', views.signup, {"next_page": '/'}), 
+    url(r"^uplaod/",views.new_image,name='upload'),
+    url(r'^user/profile/',views.profile,name='profile'),
+    url(r'user/edit/',views.edit_profile,name='edit'),
+    
 ]
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 

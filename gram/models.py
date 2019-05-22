@@ -2,17 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=100)
-    email = models.CharField(max_length=140)
-    last_login = models.DateTimeField(auto_now=True)
+# class User(models.Model):
+#     username = models.CharField(max_length=20)
+#     password = models.CharField(max_length=100)
+#     email = models.CharField(max_length=140)
+#     last_login = models.DateTimeField(auto_now=True)
     
 
     
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to =30)
     bio = models.CharField(max_length =30)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
     
     def __str__(self):
       return self.name
@@ -24,10 +25,10 @@ class Profile(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to="images/")
     image_name = models.CharField(max_length =30)
-    image_caption = models.CharField(max_length =30)
-    image_profile = models.ForeignKey(Profile, on_delete = models.CASCADE)
+    image_caption = models.CharField(max_length =30)    
     image_comments =  models.CharField(max_length =30)
     image_likes = models.IntegerField
+    user=models.ForeignKey(User,on_delete = models.CASCADE)
    
 
     def __str__(self):
