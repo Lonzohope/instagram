@@ -1,21 +1,25 @@
 {%extends 'base.html'%}
-{% load static %}
-{%block content%}
-<!DOCTYPE html>
-<html>
 
-<head>
+ {% block content %}
 
-</head>
-    <body>
+ <div class="container">
 
-      <p> WELCOME TO INSTABAE. THIS IS A PLATFORM MADE ESPECIALLY FOR YOU TO SHARE YOUR FAVORITE MOMENTS WITH OTHERS</p>
+   <div class="row">
+     <img src="{{image.image.url}}"  class="img-responsive" alt="">
+   </div>
 
-</script>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
+   <div class="row">
+     <h1 class="text-center">{{image.title}}</h1>
+   </div>
 
-</html>
-{%endblock%}
+   <div class="row">
+     {% autoescape on %}
+     {{image.post| safe}}
+    {% endautoescape %}
+
+   </div>
+
+   
+ </div>
+
+ {% endblock %}
