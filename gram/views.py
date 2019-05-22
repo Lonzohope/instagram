@@ -5,8 +5,8 @@ from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/login/')
-def article(request, profile_id):
-
+def profile(request, profile_id):
+    return render(request, 'profile')
 def index(request):
     return render(request, 'index.html')
 
