@@ -14,7 +14,7 @@ import os
 import dj_database_url
 from decouple import config
 
-Email configurations remember to install python-decouple
+# Email configurations remember to install python-decouple
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'instagram.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+    DATABASES['default'].update(prod_db)
 
 # DATABASES = {
 #     'default': {
@@ -141,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
